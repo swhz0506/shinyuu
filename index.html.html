@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffe9ef">
+  <meta name="description" content="Welcome to Shinyu's birthday party — 一封粉色的小邀请，点开云朵就开始。">
+  <title>Shinyu's Birthday Party</title>
+  <link rel="icon" href="invite/assets/berry.webp" type="image/webp">
+  <link rel="preload" as="image" href="invite/assets/bg.webp">
+  <link rel="preload" as="image" href="invite/assets/card.webp">
+  <link rel="preload" as="image" href="invite/assets/cloud.webp">
+  <link rel="stylesheet" href="invite/styles.css">
+</head>
+<body data-next="main.html">
+  <main class="app">
+
+    <!-- ---------- 首页：邀请函 ---------- -->
+    <section class="page page--intro is-active" id="intro" aria-label="Shinyu 的生日邀请函">
+      <div class="canvas">
+        <div class="bg" aria-hidden="true"></div>
+
+        <img class="berry berry--tl" src="invite/assets/berry.webp" alt="" draggable="false">
+        <img class="berry berry--br" src="invite/assets/berry.webp" alt="" draggable="false">
+
+        <figure class="invite">
+          <img class="invite__card" src="invite/assets/card.webp"
+               alt="Welcome to Shinyu's birthday party：一只戴着派对帽的粉色小猪，守着一个三层生日蛋糕。"
+               draggable="false">
+        </figure>
+
+        <button class="begin" id="beginBtn" type="button" aria-label="Let's begin：点一下云朵，打开生日邀请">
+          <span class="begin__halo" aria-hidden="true"></span>
+          <img class="begin__img" src="invite/assets/cloud.webp" alt="Let's begin!" draggable="false">
+        </button>
+      </div>
+    </section>
+
+    <!-- ---------- 第二步 ---------- -->
+    <section class="page page--next" id="next" aria-hidden="true" aria-label="生日页面" tabindex="-1">
+      <a class="next__home" id="homeBtn" href="index.html"><span aria-hidden="true">←</span> 返回首页</a>
+
+      <div class="page__bg bg--next" aria-hidden="true"></div>
+      <div class="next__veil" aria-hidden="true"></div>
+
+      <div class="next__inner">
+        <p class="next__kicker">NOVEMBER · 07</p>
+        <h1 class="next__title">生日快乐，晶㬊</h1>
+        <p class="next__text">邀请函已经打开啦。里面还藏着一个小世界，一起去看看吧。</p>
+        <a class="next__link" href="main.html">进入 Shinyu 的小世界<i aria-hidden="true">→</i></a>
+      </div>
+
+      <button class="music" id="musicBtn" type="button" aria-label="暂停背景音乐" aria-pressed="true">
+        <span class="music__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </button>
+    </section>
+
+  </main>
+
+  <iframe class="world-frame" id="worldFrame" title="Shinyu 的小世界" src="main.html"></iframe>
+
+  <!-- 背景音乐：신유《Aqua Man》assets/aqua-man.mp3。
+       想换成别的：把文件放进 assets，再把下面的 src 改成对应文件名即可
+       （assets 里还留着 amusement-park.mp3 和 inochi-no-namae-musicbox.mp3 两个备选）。 -->
+  <audio id="bgm" loop preload="auto">
+    <source src="invite/assets/aqua-man.ogg" type="audio/ogg">
+    <source src="invite/assets/aqua-man.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="invite/script.js"></script>
+</body>
+</html>
